@@ -1,0 +1,10 @@
+import themes.sbss
+
+#camera: width=1pw, height=1ph, position=abs, gravity=center
+
+#btn_shutter: width=70dp, height=70dp, position=abs, gravity=bottom, y=-(1eb+60dp)
+
+#label_result: width=1pw-20dp, height=30dp, position=abs, gravity=bottom, y=-1eb, \
+        font-family=$SANS_LIGHT, font-size=1.0, text-color=$COLOR_WHITE, text-align=center
+
+/catalog: page-background-color=$THEME_COLOR_BACKGROUND, text-color=$THEME_COLOR_TEXT

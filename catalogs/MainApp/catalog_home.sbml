@@ -1,0 +1,10 @@
+=begin catalog: script-when-loaded=on_loaded
+
+=object camera: id=camera, autofocus=yes, continuous-autofocus=yes, focus-closely=yes, \
+            image-data-enabled=yes, script-when-output@image=on_image, style=camera
+
+=object button: image="btn_shutter.png", sound="shutter.mp3", script=capture, style=btn_shutter
+
+=object label: text="", style=label_result
+
+=end catalog
