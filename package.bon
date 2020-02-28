@@ -3,5 +3,5 @@
     "language": "en",
     "version": "1.0",
     "title": "MobileNetV1",
-    "description": "MobileNetV1"
+    "description": "A sample tool using tensorflow lite model. "
 }

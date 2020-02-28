@@ -20,7 +20,8 @@ function on_image(data) {
         data["image"].image().then(function(image) {
             if (__image_captured) {
                 __run_model(image).then(function(labels) {
-                    controller.action("toast", {"message":labels[0].label})
+                    __update_result_label(labels);
+                    __update_secondary_label(labels);
                 });
 
                 __image_captured = false;
@@ -72,8 +73,25 @@ function __sorted_labels(output, length) {
     }
 
     labels.sort(function(a, b) {
-        return (a.similarity > b.similarity ? -1 : a.similarity < b.similarity ? 1 : 0);
+        return b.similarity - a.similarity;
     })
 
     return labels;
+}
+
+function __update_result_label(labels) {
+    view.object("label.result").property({ "text":labels[0].label });
+    view.object("label.result.percent").property({ "text":__percent(labels[0].similarity) + "%" });
+}
+
+function __update_secondary_label(labels) {
+    var text = labels[1].label + ": " + __percent(labels[1].similarity, 0) + "%, " +
+               labels[2].label + ": " + __percent(labels[2].similarity, 0) + "%, " +
+               labels[3].label + ": " + __percent(labels[3].similarity, 0) + "%";
+    
+    view.object("label.secondary").property({ "text":text });
+}
+
+function __percent(value, fractionDigits) {
+    return ((value / 255) * 100).toFixed(fractionDigits);
 }

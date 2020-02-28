@@ -3,8 +3,13 @@
 =object camera: id=camera, autofocus=yes, continuous-autofocus=yes, focus-closely=yes, \
             image-data-enabled=yes, script-when-output@image=on_image, style=camera
 
+=object blank: style=blank_dim
+
 =object button: image="btn_shutter.png", sound="shutter.mp3", script=capture, style=btn_shutter
 
-=object label: text="", style=label_result
+=object label: id=label.result, style=label_result
+=object label: id=label.result.percent, style=label_result.percent
+
+=object label: id=label.secondary, style=label_secondary
 
 =end catalog
